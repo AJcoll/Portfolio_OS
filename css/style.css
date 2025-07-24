@@ -21,6 +21,7 @@
     color: var(--light-text);
     font-family: var(--font-mono);
     font-size: 16px;
+    overflow-x: hidden; /* Prevent horizontal scroll on body */
   }
   
   /* --- SCANLINE EFFECT --- */
@@ -50,7 +51,7 @@
     height: 100%;
     background-color: #000;
     display: flex;
-    align-items: flex-start;
+    align-items: flex-start; /* Align content to the top-left */
     justify-content: flex-start;
     padding: 2rem;
     font-size: 1.2rem;
@@ -59,8 +60,10 @@
   }
   
   #boot-log {
-    white-space: pre-wrap;
+    white-space: pre-wrap; /* Allows text to wrap naturally */
+    word-break: break-word; /* Breaks long words if necessary */
     color: var(--accent-color);
+    max-width: 100%; /* Ensure it doesn't overflow its container */
   }
   
   .blinking-cursor {
@@ -88,7 +91,7 @@
       "nav main";
     height: 100vh;
     gap: 1px;
-    background-color: #020c1b;
+    background-color: #020c1b; /* Background for the grid gaps */
     opacity: 0;
     transition: opacity 0.5s ease-in;
   }
@@ -101,6 +104,8 @@
     padding: 0.5rem 1rem;
     background-color: var(--panel-bg);
     border-bottom: 1px solid var(--accent-color);
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    gap: 0.5rem; /* Space between wrapped items */
   }
   
   .left-nav-tree {
@@ -130,17 +135,31 @@
   
   /* --- MOBILE NAV TOGGLE --- */
   .mobile-nav-toggle {
-      display: none;
+      display: none; /* Hidden by default, shown in media query */
       background: none;
       border: none;
       color: var(--light-text);
       cursor: pointer;
       padding: 0.5rem;
+      font-size: 1.5rem; /* Make icon larger */
   }
   
-  
+  /* Close button for mobile nav */
+  .close-mobile-nav {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      color: var(--light-text);
+      cursor: pointer;
+      font-size: 2rem; /* Large enough for easy tapping */
+      z-index: 1001; /* Ensure it's above the nav */
+      display: none; /* Hidden by default, shown in mobile nav */
+  }
+
   /* --- CRT GLOW EFFECT --- */
-  .top-status-bar, .left-nav-tree, .widget h3, .content-page h2, .motd-panel h3, .about-me-section h3, .case-study-section h3 {
+  .header-title, .status-indicators span, .widget h3, .content-page h2, .motd-panel h3, .about-me-section h3, .case-study-section h3, .tech-labs-title, .nav-footer p {
       text-shadow: 0 0 2px var(--accent-color-darker);
   }
   
@@ -194,7 +213,7 @@
   }
   
   li.is-open > .project-list {
-      max-height: 200px; 
+      max-height: 200px; /* Adjust as needed for content */
   }
   
   .left-nav-tree span.nav-directory::before {
@@ -333,13 +352,13 @@
       border-bottom-color: var(--light-text);
   }
   
-  .tech-stack {
+  .tech-stack { /* Not found in HTML, but keeping for future use */
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
   }
   
-  .tech-stack span {
+  .tech-stack span { /* Not found in HTML, but keeping for future use */
       background-color: #2a2a2a;
       padding: 0.25rem 0.75rem;
       border-radius: 4px;
@@ -364,7 +383,7 @@
   pre {
       background-color: #000;
       padding: 1rem;
-      overflow-x: auto;
+      overflow-x: auto; /* Allow horizontal scroll for code blocks */
       font-family: var(--font-mono);
   }
   
@@ -389,6 +408,7 @@
       justify-content: center;
       gap: 1.5rem;
       padding: 1rem 0;
+      margin-top: auto; /* Pushes social links to the bottom of the nav */
   }
   
   .social-channels a {
@@ -437,23 +457,44 @@
   
   /* --- MOBILE RESPONSIVENESS --- */
   @media (max-width: 768px) {
+      #boot-screen {
+          padding: 1rem; /* Reduce padding on smaller screens */
+          font-size: 1rem; /* Smaller font for boot log */
+      }
+      #boot-log {
+          font-size: 1rem; /* Ensure boot log text is smaller */
+      }
+      .blinking-cursor {
+          font-size: 1rem; /* Ensure cursor matches */
+      }
+
       .dashboard-grid-twocol {
-          grid-template-columns: 1fr;
+          grid-template-columns: 1fr; /* Single column layout */
           grid-template-areas:
               "header"
               "main";
       }
   
       .top-status-bar {
-          justify-content: flex-start;
+          justify-content: flex-start; /* Align items to start */
           gap: 1rem;
+          padding: 0.75rem 1rem; /* Adjust padding */
       }
       .header-title {
           flex-grow: 1;
+          font-size: 0.9em; /* Smaller title on mobile */
+      }
+      .status-indicators {
+          font-size: 0.8em; /* Smaller status text */
       }
   
       .mobile-nav-toggle {
-          display: block;
+          display: block; /* Show hamburger menu */
+          font-size: 1.2rem; /* Adjust icon size */
+      }
+
+      .close-mobile-nav {
+          display: block; /* Show close button in mobile nav */
       }
   
       .left-nav-tree {
@@ -461,19 +502,268 @@
           top: 0;
           left: 0;
           height: 100%;
-          width: 280px;
+          width: min(280px, 85vw); /* Responsive width: max 280px, but no more than 85vw */
           z-index: 1000;
           transform: translateX(-100%);
           transition: transform 0.3s ease-in-out;
           border-right: 1px solid var(--accent-color);
+          /* Added for mobile nav overlay */
+          display: flex; /* Always flex for overlay, hidden by transform */
+          flex-direction: column;
+          padding: 2rem 1rem; /* More padding for mobile overlay */
+          box-sizing: border-box;
       }
   
       .left-nav-tree.is-open {
           transform: translateX(0);
       }
+
+      .main-content-area {
+          padding: 1rem; /* Reduced padding for main content on mobile */
+      }
+
+      .motd-panel {
+          padding: 1rem; /* Smaller padding for motd */
+      }
+      .motd-panel p {
+          font-size: 1em; /* Adjust font size */
+      }
+  
+      .widget-container {
+          grid-template-columns: 1fr; /* Single column for widgets */
+          gap: 1.5rem; /* Slightly larger gap for stacking */
+      }
+
+      .widget {
+          padding: 1rem; /* Smaller padding for widgets */
+      }
+      .widget h4 {
+          font-size: 1.1em; /* Adjust widget title size */
+      }
+      .widget p {
+          font-size: 0.9em; /* Adjust widget text size */
+      }
+      .widget-image {
+          height: 120px; /* Slightly smaller image height */
+      }
+      
+      .content-page h1 {
+          font-size: 1.8rem; /* Smaller main heading for content pages */
+      }
+      .content-page .project-subtitle {
+          font-size: 1em; /* Smaller subtitle */
+      }
+      .content-page p, .content-page li {
+          font-size: 0.9em; /* Smaller body text */
+      }
+
+      .about-me-grid {
+          grid-template-columns: 1fr !important; /* Force single column, override with !important */
+          display: grid; /* Keep as grid for consistency, but with 1 column */
+          /* Removed flex properties as grid handles stacking now */
+          gap: 1.5rem;
+          width: 100%; /* Ensure the grid itself takes full width */
+          overflow: hidden; /* Prevent internal elements from breaking out */
+      }
+      .about-me-grid > div { /* Target direct children of about-me-grid */
+          width: 100%; /* Ensure direct children take full available width */
+      }
+      .user-avatar-panel {
+          max-width: 150px; /* Constrain avatar size */
+          margin: 0 auto 1.5rem auto; /* Center and add margin */
+      }
+      .about-me-text {
+          text-align: center; /* Center about me text */
+      }
+      .about-me-section h3 {
+          text-align: center; /* Center section headers */
+      }
+      .education-log-pre, .experience-log-pre {
+          font-size: 0.85em; /* Smaller preformatted text */
+      }
+
+      .case-study-hero-image {
+          margin-bottom: 1rem; /* Adjust margin */
+      }
+      .metadata-bar {
+          flex-direction: column; /* Stack metadata items */
+          gap: 0.5rem;
+          padding: 0.75rem 1rem;
+          margin-bottom: 2rem;
+      }
+      .case-study-section img {
+          width: 100%; /* Full width for images in case studies */
+          height: auto;
+          margin-bottom: 1rem;
+      }
+      .case-study-section img.case-study-image-wireframe {
+          width: 100%; /* Full width for wireframe images */
+      }
+      .image-gallery {
+          grid-template-columns: 1fr; /* Single column for image galleries */
+          gap: 1rem;
+      }
+      .gallery-item img {
+          height: auto; /* Ensure images scale correctly */
+      }
+      .figma-embed-container {
+          padding-top: 75%; /* Adjust aspect ratio for better mobile fit (4:3) */
+      }
+
+      .tabs-container {
+          flex-wrap: wrap; /* Allow tabs to wrap */
+          justify-content: center;
+      }
+      .tab-button {
+          padding: 0.5rem 1rem; /* Smaller tab buttons */
+          font-size: 0.9em;
+      }
+      .tech-labs-item {
+          padding: 1rem; /* Smaller padding for tech labs items */
+      }
+      .tech-labs-title {
+          font-size: 1.1em; /* Adjust font size */
+      }
+      .tech-labs-description {
+          font-size: 0.9em; /* Adjust font size */
+      }
+      .tech-labs-tags {
+          gap: 0.5rem; /* Smaller gap for tags */
+      }
+      .tech-labs-tags span {
+          font-size: 0.8em;
+      }
+      .tech-labs-link {
+          font-size: 0.9em;
+      }
+
+      .contact-link-item {
+          margin-bottom: 1.5rem; /* Adjust spacing */
+      }
+      .contact-command {
+          padding: 0.75rem;
+          font-size: 0.9em;
+      }
+      .contact-description {
+          font-size: 0.8em;
+          padding-left: 0.5rem; /* Adjust indent */
+      }
+
+      .error-page-container h1 {
+          font-size: 3rem; /* Smaller 404 heading */
+      }
+      .error-page-container p {
+          font-size: 1.2rem; /* Smaller 404 text */
+      }
+      .error-page-container .back-link {
+          font-size: 1em; /* Smaller 404 button */
+      }
   }
   
-  
+  /* Further adjustments for very small screens */
+  @media (max-width: 480px) {
+      #boot-screen {
+          font-size: 0.9rem; /* Even smaller font for boot log */
+          padding: 0.75rem;
+      }
+      #boot-log {
+          font-size: 0.9rem;
+      }
+      .blinking-cursor {
+          font-size: 0.9rem;
+      }
+
+      .top-status-bar {
+          padding: 0.5rem;
+      }
+      .header-title {
+          font-size: 0.8em;
+      }
+      .status-indicators {
+          font-size: 0.7em;
+      }
+
+      .main-content-area {
+          padding: 0.75rem;
+      }
+      .motd-panel {
+          padding: 0.75rem;
+      }
+      .motd-panel p {
+          font-size: 0.9em;
+      }
+
+      .widget-container {
+          gap: 1rem;
+      }
+      .widget {
+          padding: 0.75rem;
+      }
+      .widget h4 {
+          font-size: 1em;
+      }
+      .widget p {
+          font-size: 0.85em;
+      }
+      .widget-image {
+          height: 100px;
+      }
+
+      .content-page h1 {
+          font-size: 1.5rem;
+      }
+      .content-page .project-subtitle {
+          font-size: 0.9em;
+      }
+      .content-page p, .content-page li {
+          font-size: 0.85em;
+      }
+
+      .metadata-bar {
+          gap: 0.25rem;
+          padding: 0.5rem;
+          font-size: 0.8em;
+      }
+      .figma-embed-container {
+          padding-top: 100%; /* Adjust aspect ratio for square-ish look on very small screens */
+      }
+
+      .tabs-container {
+          flex-wrap: wrap; /* Allow tabs to wrap */
+          justify-content: center;
+      }
+      .tab-button {
+          padding: 0.4rem 0.8rem;
+          font-size: 0.8em;
+      }
+      .tech-labs-item {
+          padding: 0.75rem;
+      }
+      .tech-labs-title {
+          font-size: 1em;
+      }
+      .tech-labs-description {
+          font-size: 0.85em;
+      }
+      .tech-labs-tags {
+          gap: 0.5rem;
+      }
+      .tech-labs-tags span {
+          font-size: 0.75em;
+      }
+      .tech-labs-link {
+          font-size: 0.85em;
+      }
+
+      .contact-command {
+          padding: 0.5rem;
+          font-size: 0.85em;
+      }
+      .contact-description {
+          font-size: 0.75em;
+      }
+  }
+
   /* --- THEMED SCROLLBARS --- */
   ::-webkit-scrollbar {
     width: 10px;
@@ -518,7 +808,7 @@
   /* --- ABOUT ME PAGE STYLES --- */
   .about-me-grid {
       display: grid;
-      grid-template-columns: 500px 1fr;
+      grid-template-columns: 500px 1fr; /* Default desktop layout */
       gap: 2rem;
       align-items: flex-start;
       margin-bottom: 3rem;
@@ -580,17 +870,6 @@
       line-height: 1.8;
   }
   
-  @media (max-width: 768px) {
-      .about-me-grid {
-          grid-template-columns: 1fr;
-      }
-      .user-avatar-panel {
-          max-width: 120px;
-          margin: 0 auto 2rem auto;
-      }
-  }
-  
-  
   /* --- CONTACT PAGE STYLES --- */
   .contact-links-container {
       margin-top: 2rem;
@@ -651,6 +930,7 @@
   }
   
   .case-study-section img {
+    /* Default for two columns on larger screens */
     width: 49%;
     height: auto;
     margin-bottom: 1rem;
@@ -661,7 +941,7 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 75%;
+    width: 75%; /* Default for larger central image */
     height: auto;
     margin-bottom: 1rem;
     border: 1px solid #2a2a2a;
@@ -708,7 +988,7 @@
   
   .image-gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Default for desktop */
       gap: 1rem;
       margin-top: 1rem;
   }
@@ -810,7 +1090,11 @@
   }
   
   .tech-labs-tags span {
-      color: var(--light-text);
+      background-color: #2a2a2a; /* Added background for tags */
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
+      font-size: 0.9em;
+      color: var(--light-text); /* Ensure text color is visible */
   }
   
   .tech-labs-link {
