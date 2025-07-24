@@ -1,0 +1,126 @@
+Product Requirements Document (PRD): "The OS Dashboard" Portfolio
+1. Introduction
+This PRD outlines the requirements for developing a unique, interactive UX/HCI, IT/Cyber, and Development portfolio. Departing from traditional web pages, this portfolio will be presented as a stylized "Operating System Dashboard" or "Digital Forensics Interface," designed to be highly memorable, efficient for recruiters, and a direct demonstration of the owner's skills across multiple disciplines.
+
+2. Goals & Objectives
+Create a Memorable & Unique Portfolio: Stand out from standard web portfolios.
+
+Efficient Information Delivery: Allow recruiters to quickly and easily find relevant information about projects and skills within seconds.
+
+Showcase Diverse Skill Set: Clearly demonstrate expertise in UX/HCI, IT/Cyber, and Development without causing confusion or suggesting a lack of focus.
+
+Directly Demonstrate Skills: The portfolio's interface itself should serve as a live example of design, development, and system thinking capabilities.
+
+Maintain Professionalism: Despite the unique theme, the presentation must be polished, legible, and convey a high level of professionalism.
+
+3. Target Audience
+Primary: Recruiters, Hiring Managers, and Team Leads in UX/Product Design, HCI, IT/Cybersecurity, and Software Development roles.
+
+Secondary: Industry peers, potential collaborators, and anyone interested in innovative portfolio displays.
+
+4. Key Features & Functionality
+4.1. Initial Access Sequence ("Boot-Up")
+Requirement: A brief, text-based animation (e.g., green/white text on dark background) that mimics a system boot or data access.
+
+Duration: Must be extremely fast (1-3 seconds max) to avoid frustrating users.
+
+Content: Dynamic display of text like "ACCESSING_PORTFOLIO_DATABASE...", "SYSTEM_INITIATING...", "[Your Name]_PROFILE_ONLINE".
+
+Purpose: Sets the unique, technical theme immediately.
+
+4.2. Main Dashboard Interface (Landing Page)
+Requirement: The primary view, designed for quick scanning and navigation.
+
+Visual Style: Dark mode default, high-contrast, modular panels. Subtle, non-distracting animations (e.g., blinking cursors, soft glows on hover, minor "glitch" effects on transitions).
+
+Components:
+
+Top Status Bar: Displays portfolio title ([Your Name] :: Portfolio_OS v1.0), and subtle system status indicators (SYSTEM_NOMINAL, ONLINE, current time/date).
+
+Left Navigation ("Directory Tree"): Persistent sidebar with clearly labeled, clickable links acting as "directories" or "applications":
+
+► PROJECTS_REPOSITORY/ (Top-level, might expand or lead to a page with filters)
+
+    ► UX_DESIGN_MODULES/
+
+    ► IT_CYBER_SOLUTIONS/
+
+    ► DEVELOPMENT_ARTIFACTS/
+
+► ABOUT_ME_FILE/
+
+► RESUME_DOWNLOAD.pdf (Direct download link)
+
+► CONTACT_LOG/
+
+Central "Top Project Widgets" (Hero Section): Three prominent, distinct panels (widgets) on the main dashboard, each showcasing one top project from UX, IT/Cyber, and Development.
+
+Content per Widget:
+
+Clear Category Title (e.g., // UX DESIGN INITIATIVE //).
+
+Project Title (concise and impactful).
+
+One-liner Value Proposition/Hook (1-2 sentences).
+
+Small, compelling thumbnail image or GIF (static or very short loop).
+
+Action Button: [ACCESS_CASE_STUDY] (Clicking this opens the full case study in the main content area).
+
+Right-Side "Skill Monitor" (Optional): A smaller panel displaying key skills using stylized "gauges" or "matrices" (e.g., UX Research [█████], Python Dev [████], Network Security [███]). This is non-interactive.
+
+4.3. Project Repository (Dynamic Content Area)
+Requirement: The main central area that dynamically updates based on user interaction (clicking a navigation link or a "Top Project Widget").
+
+Content Display:
+
+Project Lists (when clicking a directory): When a user clicks UX_DESIGN_MODULES/ (or similar), this area displays a list of all projects within that category.
+
+Each project in the list will have: Project Title, 2-3 sentence summary, small key image, and a [VIEW_DETAILS] button to open its full case study.
+
+Full Case Studies (when clicking a project title/button): This area loads the complete, detailed case study for a selected project.
+
+Structure: Standard headings, paragraphs, high-quality images, embedded videos (if applicable), and clear sections (e.g., Problem, Solution, Process, My Role, Results, Learnings).
+
+Styling: Maintains the dashboard theme (fonts, colors) but prioritizes readability for long-form content.
+
+4.4. Other Content Pages
+About Me (ABOUT_ME_FILE/): Loads into the central content area, providing your professional story, philosophy, and how your diverse skills converge.
+
+Contact (CONTACT_LOG/): Loads into the central content area, providing clear methods to contact you (e.g., email, LinkedIn, maybe GitHub). Stylized as "communication channels."
+
+4.5. Resume Download (RESUME_DOWNLOAD.pdf)
+Requirement: A direct link to download your PDF resume. Should open in a new tab or trigger a download.
+
+5. Technical Requirements
+Responsiveness: Fully responsive design for optimal viewing on desktop, tablet, and mobile devices.
+
+Performance: Fast loading times for all assets and content. Smooth, non-laggy animations and transitions.
+
+Front-End Technologies: HTML5, CSS3 (with potentially CSS variables for theme management, or a preprocessor like SCSS), JavaScript (vanilla JS or a lightweight framework like React/Vue/Svelte/Alpine.js for component management and reactivity).
+
+Deployment: Static site hosting (e.g., Netlify, Vercel, GitHub Pages) for speed and cost-effectiveness.
+
+Version Control: Git/GitHub for collaborative development and version management.
+
+Content Management (Optional/Future): For case studies, consider a headless CMS (e.g., Strapi, Contentful) if you anticipate frequent content updates, or simple Markdown files for initial simplicity.
+
+6. User Experience (UX) Considerations
+Intuitive Navigation: Clear information scent. Users should always know where they are and how to get to other sections.
+
+Readability: High contrast, appropriate font sizes, and ample line spacing for long-form content within case studies.
+
+Accessibility: Consider basic accessibility principles (keyboard navigation, ARIA attributes where appropriate).
+
+No Puzzles/Barriers: All interactions should be direct and lead to immediate information access. The theme enhances, not hinders, usability.
+
+Visual Hierarchy: Clear distinction between primary and secondary information.
+
+7. Future Enhancements (Out of Scope for V1)
+Search functionality within projects.
+
+Advanced animations or 3D elements (beyond subtle 2D effects).
+
+Backend integration (unless a specific feature requires it).
+
+Real-time "system logs" or dynamic content feeds.

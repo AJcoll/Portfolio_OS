@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALLAN COLLETT :: Portfolio OS</title>
+    <link rel="icon" href="assets/favicon.ico" sizes="any">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script type="module" src="js/main.js" defer></script>
+</head>
+<body>
+
+    <div id="boot-screen">
+        <pre id="boot-log"></pre>
+        <span class="blinking-cursor"></span>
+    </div>
+
+    <div id="dashboard" class="dashboard-grid-twocol hidden">
+        <header class="top-status-bar">
+            <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle navigation">
+                <i data-feather="menu"></i>
+            </button>
+            <div class="header-title">ALLAN COLLETT :: Portfolio_OS v1.0</div>
+            <div class="status-indicators">
+                <span>SYSTEM_NOMINAL</span>
+                <span id="live-clock"></span>
+            </div>
+        </header>
+
+        <nav class="left-nav-tree" id="left-nav-tree">
+            <ul class="main-nav-list">
+                <li><a href="#" class="nav-link" id="home-link" data-template="template-home">HOME/</a></li>
+                <li><a href="#" class="nav-link" data-template="template-ux-list">UX_DESIGN_MODULES/</a></li>
+                <li><a href="#" class="nav-link" data-template="template-tech-labs">TECH_LABS/</a></li>
+                <li><a href="#" class="nav-link" data-template="template-about-me">ABOUT_ME_FILE/</a></li>
+                <li><a href="#" class="nav-link" data-template="template-contact">CONTACT_LOG/</a></li>
+                <li><a href="/path/to/your/resume.pdf" target="_blank">RESUME_DOWNLOAD.pdf</a></li>
+            </ul>
+
+            <div class="social-channels">
+                <a href="https://github.com/AJcoll" target="_blank" aria-label="GitHub"><i data-feather="github"></i></a>
+                <a href="https://linkedin.com/in/allan-collett" target="_blank" aria-label="LinkedIn"><i data-feather="linkedin"></i></a>
+            </div>
+
+            <div class="nav-footer">
+                <p>© 2025 ALLAN COLLETT</p>
+                <p>STATUS: ONLINE <span class="status-dot"></span></p>
+            </div>
+        </nav>
+
+        <main id="main-content-area" class="main-content-area">
+            </main>
+    </div>
+
+    <template id="template-home">
+        <div class="motd-panel">
+            <h3>> SYSTEM_BRIEFING //</h3>
+            <p>I'm a technologist fascinated by the "why" behind the "how." I thrive on understanding why people use technology the way they do and how to make that experience better. This curiosity led me to pursue a Master's in Human-Computer Interaction from DePaul University, where I built a deep foundation in user-centric problem-solving, web architecture, and data analysis.</p>
+        </div>
+        <div class="widget-container">
+            <div class="widget">
+                <img src="./images/itbuddy/it-buddy-hero.jpg" alt="IT Buddy Project Preview" class="widget-image">
+                <h3>// FEATURED UX INITIATIVE //</h3>
+                <h4>IT Buddy</h4>
+                <p>An AI-powered tech support tool designed to reduce frustration and build confidence for users with low digital literacy.</p>
+                <button class="nav-link" data-template="template-project-ux-one">[ACCESS_CASE_STUDY]</button>
+            </div>
+            <div class="widget">
+                 <img src="./images/arc-system/2 - Awareness.png" alt="ARC System Project Preview" class="widget-image">
+                <h3>// FEATURED UX INITIATIVE //</h3>
+                <h4>The ARC System</h4>
+                <p>A conceptual framework for calm, clear, and confident handoffs in Level 3 autonomous vehicles.</p>
+                <button class="nav-link" data-template="template-project-ux-three">[ACCESS_CASE_STUDY]</button>
+            </div>
+             <div class="widget">
+                <img src="./images/healthhub/health-hub-th.jpg" alt="Health Hub Project Preview" class="widget-image">
+                <h3>// FEATURED UX INITIATIVE //</h3>
+                <h4>Health Hub</h4>
+                <p>A comprehensive, multi-channel application for health and wellness tracking, from workouts to appointment scheduling.</p>
+                <button class="nav-link" data-template="template-project-ux-two">[ACCESS_CASE_STUDY]</button>
+            </div>
+        </div>
+    </template>
+
+    <template id="template-ux-list">
+        <article class="content-page">
+            <h2>INDEX: UX_DESIGN_MODULES/</h2>
+            <div class="widget-container">
+                <div class="widget">
+                    <img src="./images/itbuddy/it-buddy-hero.jpg" alt="IT Buddy Project Preview" class="widget-image">
+                    <h3>// UX DESIGN INITIATIVE //</h3>
+                    <h4>IT Buddy Capstone Project</h4>
+                    <p>An AI-powered tech support tool designed to reduce frustration and build confidence for users with low digital literacy.</p>
+                    <button class="nav-link" data-template="template-project-ux-one">[ACCESS_CASE_STUDY]</button>
+                </div>
+                <div class="widget">
+                    <img src="./images/arc-system/2 - Awareness.png" alt="ARC System Project Preview" class="widget-image">
+                    <h3>// UX CONCEPT INITIATIVE //</h3>
+                    <h4>The ARC System</h4>
+                    <p>A conceptual framework for calm, clear, and confident handoffs in Level 3 autonomous vehicles.</p>
+                    <button class="nav-link" data-template="template-project-ux-three">[ACCESS_CASE_STUDY]</button>
+                </div>
+                <div class="widget">
+                    <img src="./images/healthhub/health-hub-th.jpg" alt="Health Hub Project Preview" class="widget-image">
+                    <h3>// UX DESIGN INITIATIVE //</h3>
+                    <h4>Health Hub</h4>
+                    <p>A comprehensive, multi-channel application for health and wellness tracking, from workouts to appointment scheduling.</p>
+                    <button class="nav-link" data-template="template-project-ux-two">[ACCESS_CASE_STUDY]</button>
+                </div>
+                <div class="widget">
+                    <!-- <img src="https://via.placeholder.com/400x200/f0a84c/0a192f?text=Tasker" alt="Tasker Project Preview" class="widget-image"> -->
+                    <h3>// UX RESEARCH INITIATIVE //</h3>
+                    <h4>Tasker</h4>
+                    <p>Foundational research into the behaviors, preferences, and pain points of users managing tasks with digital tools.</p>
+                    <button class="nav-link" data-template="template-project-ux-four">[ACCESS_CASE_STUDY]</button>
+                </div>
+            </div>
+        </article>
+    </template>
+
+    <template id="template-tech-labs">
+        <article class="content-page">
+            <h2>// TECH_LABS_INDEX</h2>
+            <p>Beyond my primary focus in UX, I actively maintain and develop projects to keep my technical skills sharp and explore new technologies. This space serves as an index for that work.</p>
+            <div class="tabs-wrapper">
+                <div class="tabs-container">
+                    <button class="tab-button active" data-target="dev-content">DEVELOPMENT_ARTIFACTS</button>
+                    <button class="tab-button" data-target="cyber-content">IT_CYBER_SOLUTIONS</button>
+                </div>
+                <div class="tab-content-container">
+                    <div class="tab-pane active" id="dev-content">
+                        <div class="tech-labs-item">
+                            <h4 class="tech-labs-title">Portfolio_OS_v1.1</h4>
+                            <p class="tech-labs-description">This portfolio itself, built from scratch to be a unique and interactive showcase. Designed with a focus on theme, usability, and performance.</p>
+                            <div class="tech-labs-tags">
+                                <span>[HTML5]</span>
+                                <span>[CSS3]</span>
+                                <span>[JavaScript]</span>
+                                <span>[UI_Design]</span>
+                            </div>
+                            <a href="https://github.com/AJcoll/Portfolio_OS" target="_blank" class="tech-labs-link">[> VIEW_ON_GITHUB]</a>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="cyber-content">
+                        <div class="tech-labs-item">
+                            <h4 class="tech-labs-title">Secure_Home_Lab_v1.0</h4>
+                            <p class="tech-labs-description">An ongoing project to design, build, and maintain a segmented home network for development work, self-hosting, and secure IoT device management.</p>
+                            <div class="tech-labs-tags">
+                                <span>[Windows Server]</span>
+                                <span>[Windows 10]</span>
+                                <span>[Kali Linux]</span>
+                                <span>[Nmap]</span>
+                            </div>
+                            <a href="https://github.com/AJcoll/Home-Lab" target="_blank" class="tech-labs-link">[> VIEW_ON_GITHUB]</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </template>
+
+    <template id="template-about-me">
+        <article class="content-page">
+            <h2>ABOUT_ME_FILE.txt</h2>
+            <div class="about-me-grid">
+                <div class="about-me-text">
+                    <p>I'm a technologist fascinated by the "why" behind the "how." I thrive on understanding why people use technology the way they do and how to make that experience better. This curiosity led me to pursue a Master's in Human-Computer Interaction from DePaul University, where I built a deep foundation in user-centric problem-solving, web architecture, and data analysis.</p>
+                </div>
+                <div class="user-avatar-panel">
+                    <img src="./images/about-me-photo.jpg" alt="A photo of you" class="user-avatar-image">
+                    <div class="user-avatar-caption">// ID_SCAN_COMPLETE</div>
+                </div>
+            </div>
+            <section class="about-me-section">
+                <h3>// EDUCATION_LOG</h3>
+                <pre class="education-log-pre">
+[2023-2025]   > M.S. Human-Computer Interaction @ DePaul University
+[2018-2022]   > B.S. Advertising Management @ Michigan State University</pre>
+            </section>
+            <section class="about-me-section">
+                <h3>// EXPERIENCE_LOG</h3>
+                <pre class="experience-log-pre">
+[2022-2024]   > Technical Recruiter @ Actalent
+[2019-2022]   > IT Support Technician @ Everlast Floors</pre>
+            </section>
+        </article>
+    </template>
+
+    <template id="template-project-ux-one">
+        <article class="content-page">
+            <a href="#" class="back-link" data-template="template-ux-list">◄ RETURN_TO_LIST</a>
+            <h2>CASE_STUDY: IT_Buddy.txt</h2>
+            <h1>IT Buddy: Bridging the Digital Literacy Divide</h1>
+            <p class="project-subtitle">An AI-powered tech support tool designed to reduce frustration, build confidence, and create an intuitive, accessible experience for navigating everyday technology problems.</p>
+            <img src="./images/itbuddy/it-buddy-hero.jpg" alt="IT Buddy App Hero Image" class="case-study-hero-image">
+            <div class="metadata-bar">
+                <div><strong>ROLE:</strong> UX/UI Designer, UX Researcher, Testing</div>
+                <div><strong>TOOLS:</strong> Figma, Google Suite (Docs, Forms, Sheets)</div>
+                <div><strong>TIMELINE:</strong> Spring 2025</div>
+                <div><strong>TYPE:</strong> UX, UI, AI</div>
+            </div>
+            <section class="case-study-section">
+                <h3>// 01_PROBLEM_STATEMENT</h3>
+                <p>There is a significant digital literacy gap, particularly among older adults. This user group faces not only practical but also emotional barriers when interacting with new technology, including anxiety and low self-confidence. Key challenges often revolve around "confusing language, fear of making mistakes, and difficulty retaining new information."</p>
+                <h4>Project Goals:</h4>
+                <ul class="directives-list">
+                    <li>Help older users feel more confident about their digital literacy.</li>
+                    <li>Create a design that can be used by all skill levels.</li>
+                    <li>Reduce user frustration when independently addressing tech-related problems.</li>
+                </ul>
+            </section>
+            <section class="case-study-section">
+                <h3>// 02_RESEARCH_AND_DISCOVERY</h3>
+                <p>To understand the problem space, we conducted a competitive analysis, a literature review, and direct user research through interviews and a survey.</p>
+                <h4>Competitive Analysis</h4>
+                <p>We reviewed six existing digital literacy products and found a clear market gap: "none of the existing tools fully meet these combined needs of a free, real-time, and adaptive digital literacy support tool."</p>
+                <!-- <img src="#" alt="Competitive Analysis Chart" class="case-study-image"> -->
+                <h4>User Interviews</h4>
+                <p>We conducted one-on-one interviews with two older adults (Jim, 82 and Andres, 57) to uncover their real-world pain points. Three primary themes emerged from these conversations: language confusion, fear of failure, and frustration.</p>
+                <blockquote>One participant captured the core emotional barrier perfectly, stating they avoid new technologies because they believe they will "mess up or 'ruin' something."</blockquote>
+                <img src="https://via.placeholder.com/800x450/1F1F1F/EAEAEA?text=User+Personas" alt="User Personas" class="case-study-image">
+            </section>
+            <section class="case-study-section">
+                <h3>// 03_DESIGN_AND_ITERATION</h3>
+                <p>Our research findings directly informed our design principles: Accessibility, Empathy, Simplicity, and Empowerment. We translated our key insights into tangible features.</p>
+                <div class="insight-table">
+                    <div class="insight-row">
+                        <div class="insight-cell"><strong>Insight:</strong> Fear of making mistakes</div>
+                        <div class="insight-cell"><strong>Feature:</strong> A supportive, judgment-free interface with clear, reversible actions.</div>
+                    </div>
+                    <div class="insight-row">
+                        <div class="insight-cell"><strong>Insight:</strong> Confusing technical jargon</div>
+                        <div class="insight-cell"><strong>Feature:</strong> A focus on plain language and adjustable "personalities" (e.g., Formal, Casual).</div>
+                    </div>
+                    <div class="insight-row">
+                        <div class="insight-cell"><strong>Insight:</strong> Difficulty retaining information</div>
+                        <div class="insight-cell"><strong>Feature:</strong> An accessible "Ask History" so users can revisit tutorials and practice.</div>
+                    </div>
+                </div>
+            </section>
+            <section class="case-study-section">
+                <h3>// 04_THE_FINAL_SOLUTION</h3>
+                <p>The result is IT Buddy, an AI-driven tech support companion designed to meet users where they are. The application guides users through common tech problems with simple, step-by-step instructions. Key user flows include a gentle onboarding process, a primary "Ask a Question" interface, and easy-to-find settings for personalization.</p>
+                 <img src="https://via.placeholder.com/800x500/1F1F1F/EAEAEA?text=Key+Workflow+Screens" alt="Key Workflow Mockups" class="case-study-image">
+            </section>
+            <section class="case-study-section">
+                <h3>// 05_FINAL_SHOWCASE</h3>
+                <h4>High-Fidelity Mockups</h4>
+                <div class="image-gallery">
+                    <figure class="gallery-item">
+                        <img src="./images/itbuddy/onboarding/Onboarding.png" alt="Onboarding flow screens">
+                        <figcaption class="gallery-caption">// ONBOARDING_FLOW //</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="./images/itbuddy/home/Home.png" alt="Home screen mockups">
+                        <figcaption class="gallery-caption">// HOME_SCREENS //</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="./images/itbuddy/chat/Chat.png" alt="Answer flow mockups">
+                        <figcaption class="gallery-caption">// ANSWER_FLOW //</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="./images/itbuddy/settings/Settings.png" alt="Settings screen mockups">
+                        <figcaption class="gallery-caption">// SETTINGS_SCREENS //</figcaption>
+                    </figure>
+                </div>
+                <h4>Interactive Prototype</h4>
+                <div class="figma-embed-container">
+                    <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/proto/euxQyKMjb03ZCFu2ys7fEc/IT-Buddy?page-id=0%3A1&node-id=1-572&p=f&viewport=153%2C112%2C0.11&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A572&embed-host=share" allowfullscreen></iframe>
+                </div>
+            </section>
+            <section class="case-study-section">
+                <h3>// 06_RESULTS_AND_LEARNINGS</h3>
+                <p>Usability testing with 6 participants yielded positive results and clear directions for improvement. The prototype achieved an overall System Usability Scale (SUS) score of <strong>82/100</strong>, indicating a usable and well-received solution.</p>
+                <div class="results-table">
+                    <p>Task completion rates were 6/6 for the first three tasks, with only the final "Create a Folder" task showing a lower completion rate of 5/6. Some participants noted that the text instructions for this final task felt "too long or dense," providing a key insight for future refinement.</p>
+                </div>
+                <h4>Key Learnings:</h4>
+                <p>The data validated our core approach of using plain language and step-by-step guidance. The primary area for improvement is in breaking down complex instructions into even smaller, more granular steps to reduce cognitive load.</p>
+            </section>
+            <section class="case-study-section">
+                <h3>// 07_FUTURE_ITERATIONS</h3>
+                <p>Based on our findings, the next steps for this project would be to build a functional version using the ChatGPT API and continue to refine the response delivery to support a broader range of user needs and tech tasks.</p>
+            </section>
+        </article>
+    </template>
+    
+    <template id="template-project-ux-two">
+        <article class="content-page">
+            <a href="#" class="back-link" data-template="template-ux-list">◄ RETURN_TO_LIST</a>
+            <h2>CASE_STUDY: Health_Hub_Analysis.txt</h2>
+            <h1>Health Hub</h1>
+            <p class="project-subtitle">A comprehensive, multi-channel application for health and wellness tracking, designed to consolidate workout tracking, meal planning, and appointment scheduling into a single, intuitive platform.</p>
+            <img src="./images/healthhub/health-hub-th.jpg" alt="Health Hub App Hero Image" class="case-study-hero-image">
+            <div class="metadata-bar">
+                <div><strong>ROLE:</strong> UX/UI Designer, Prototyping</div>
+                <div><strong>TOOLS:</strong> Figma, Pen & Paper</div>
+                <div><strong>TIMELINE:</strong> Fall 2024</div>
+                <div><strong>TYPE:</strong> UX, UI</div>
+            </div>
+            <section class="case-study-section">
+                <h3>// 01_PROBLEM_STATEMENT</h3>
+                <p>Health-conscious users often must rely on a variety of disparate applications to manage different aspects of their well-being, such as fitness, diet, and medical appointments. This fragmentation leads to a confusing, stressful, and inefficient user experience.</p>
+                <h4>Project Goals:</h4>
+                <ul class="directives-list">
+                    <li>Consolidate appointment scheduling and immunization records.</li>
+                    <li>Integrate workout regime and calorie tracking.</li>
+                    <li>Provide meal recommendations and recipe saving in one place.</li>
+                </ul>
+            </section>
+            <section class="case-study-section">
+                <h3>// 02_IDEATION_AND_PROTOTYPING</h3>
+                <p>Our process began with collaborative sketching sessions to generate a wide range of design concepts. Based on our target user personas—a busy student and a health-conscious veteran—we developed mid-fidelity prototypes to test key user flows without the overhead of full visual design.</p>
+                <img src="https://via.placeholder.com/800x450/1F1F1F/EAEAEA?text=Sketches+and+Mid-Fi+Wireframes" alt="Health Hub Sketches" class="case-study-image">
+            </section>
+            <section class="case-study-section">
+                <h3>// 03_USABILITY_TESTING_AND_FEEDBACK</h3>
+                <p>We conducted one-on-one usability tests with three participants, asking them to complete core tasks within our mid-fi prototype. The feedback was crucial for identifying areas of improvement before creating the final designs.</p>
+                <blockquote>One participant highlighted a key interaction issue, noting that in the workout section, "all of the headings had different clickable area sizes... at first, he even thought that the button did not work."</blockquote>
+                <p>Other key feedback included the need to make the fitness and diet sections more prominent on the mobile home screen and ensuring all pages were fully scrollable.</p>
+            </section>
+            <section class="case-study-section">
+                <h3>// 04_THE_FINAL_SOLUTION</h3>
+                <p>Incorporating the user feedback, we developed a high-fidelity, multi-channel prototype for mobile devices meant to create an all in one health and wellness hub. The final design features a clean, unified dashboard that brings all aspects of a user's health journey into one convenient and easy-to-navigate application.</p>
+            </section>
+            <section class="case-study-section">
+                <h3>// 05_FINAL_SHOWCASE</h3>
+                <h4>High-Fidelity Mockups</h4>
+                <div class="image-gallery">
+                    <figure class="gallery-item">
+                        <img src="./images/healthhub/Login:Sign-Up/login/sign-up.png" alt="Onboarding flow screens">
+                        <figcaption class="gallery-caption">// LOGIN/SIGN-UP //</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="./images/healthhub/home:profile/Home-Profile.png" alt="Home screen mockups">
+                        <figcaption class="gallery-caption">// HOME_SCREEN/PROFILE //</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="./images/healthhub/appt/appt.png" alt="Answer flow mockups">
+                        <figcaption class="gallery-caption">// APPOINTMENT_SCREENS //</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="./images/healthhub/workout/workout.png" alt="Settings screen mockups">
+                        <figcaption class="gallery-caption">// WORKOUT_SCREENS //</figcaption>
+                    </figure>
+                </div>
+                <h4>Interactive Prototype</h4>
+                <div class="figma-embed-container">
+                    <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/proto/b9a8cMVYgmz3dHQHe4uzUa/Health-Hub?page-id=0%3A1&node-id=28-2587&p=f&viewport=232%2C382%2C0.15&scaling=scale-down&content-scaling=fixed&starting-point-node-id=0%3A1315&embed-host=share" allowfullscreen></iframe>
+                </div>
+            </section>
+            <section class="case-study-section">
+                <h3>// 06_REFLECTION_AND_LEARNINGS</h3>
+                <p>This project was a valuable exercise in designing a large-scale, all-in-one application. While we are proud of the final high-fidelity prototype, the usability feedback underscored the importance of iterative testing. Given more time, we would conduct further testing, such as surveys, to gather a wider variety of results and continue to refine the application to better serve the full scope of user needs.</p>
+            </section>
+        </article>
+    </template>
+    
+    <template id="template-project-ux-three">
+        <article class="content-page">
+            <a href="#" class="back-link" data-template="template-ux-list">◄ RETURN_TO_LIST</a>
+            <h2>CASE_STUDY: ARC_System_Handoff.txt</h2>
+            <h1>The ARC System</h1>
+            <p class="project-subtitle">A framework for calm, clear, and confident autonomous handoffs in SAE Level 3 vehicles.</p>
+            <img src="./images/arc-system/2 - Awareness.png" alt="ARC System Hero Image" class="case-study-hero-image">
+            <div class="metadata-bar">
+                <div><strong>ROLE:</strong> UX Designer & Researcher</div>
+                <div><strong>TOOLS:</strong> Figma, Pen & Paper</div>
+                <div><strong>TIMELINE:</strong> 4 Weeks</div>
+                <div><strong>TYPE:</strong> HMI, UX, UI</div>
+            </div>
+            <section class="case-study-section">
+                <h3>// 01_THE_PROBLEM_The_10_Second_Crisis</h3>
+                <p>The transition to autonomous driving introduces new human-factors challenges, the most critical being the "handoff"—the moment a car must return control to a potentially distracted human driver. Studies show it can take a driver 8-10 seconds to regain full situational awareness. Current systems often use abrupt, startling alerts that can induce panic rather than focused action. This project reframes the handoff as a conversation between car and driver, guided by the question: How might we design an alert system that a driver can understand intuitively in under 3 seconds?</p>
+            </section>
+            <section class="case-study-section">
+                <h3>// 02_RESEARCH_AND_STRATEGY</h3>
+                <p>I synthesized findings from academic papers, NTSB accident reports involving ADAS failures, and real-world user reviews of current systems. This produced three core insights that became the foundation for the ARC framework:</p>
+                <ul class="directives-list">
+                    <li><strong>Insight: Abrupt Alerts Cause Panic.</strong> The common "panic alarm" approach is ineffective, leading to cognitive overload.</li>
+                    <li><strong>Insight: Drivers Lack a Clear Mental Model.</strong> Most drivers treat the system as a perfect black box, leading to over-trust and lack of preparedness.</li>
+                    <li><strong>Insight: Visual-Only Warnings Are Insufficient.</strong> An effective system must be multi-modal, engaging sight, hearing, and touch.</li>
+                </ul>
+                <p>Based on this, I established three design principles for the solution: <strong>Awareness</strong> (proactive & ambient), <strong>Request</strong> (clear & actionable), and <strong>Confirmation</strong> (closed-loop & confident).</p>
+            </section>
+            <section class="case-study-section">
+                <h3>// 03_SOLUTION_DESIGN</h3>
+                <h4>Early Explorations</h4>
+                <p>I began with rapid, low-fidelity sketching to explore a wide range of concepts for the instrument cluster. This allowed me to quickly test different layouts before investing time in high-fidelity mockups.</p>
+                <img src="https://via.placeholder.com/800x450/1F1F1F/EAEAEA?text=Hand-drawn+Sketches" alt="Hand-drawn sketches of interface concepts" class="case-study-image">
+                <h4>A Multi-Modal Walkthrough</h4>
+                <p>The prototype follows a sequence designed to be a gradual conversation.</p>
+                <h5>Phase A: Awareness (T-15 Seconds)</h5>
+                <p>The system detects a complex situation ahead. It begins to gently draw the driver's attention back with a soft, pulsing cyan light on the dash and a low, gentle chime.</p>
+                <img src="./images/arc-system/1 - Normal Driving.png" alt="Side-by-side comparison of the dashboard in normal and awareness states" class="case-study-image">
+                <img src="./images/arc-system/2 - Awareness.png" alt="Side-by-side comparison of the dashboard in normal and awareness states" class="case-study-image">
+                <h5>Phase R: Request (T-10 Seconds)</h5>
+                <p>The explicit handoff request. The light pulses faster, the screen displays "TAKE CONTROL," and a calm voice prompt says, "Please take control of the wheel."</p>
+                <img src="./images/arc-system/3 - Request.png" alt="Mockup of the dashboard in the explicit request state" class="case-study-image">
+                <h5>Phase C: Confirmation</h5>
+                <p>If the driver doesn't respond, the system escalates with amber lights and a haptic vibration in the wheel. Once they grip the wheel, the system provides positive confirmation with a green light and a clear "YOU HAVE CONTROL" message.</p>
+                <img src="./images/arc-system/4 - Urgent.png" alt="Side-by-side comparison of the dashboard in urgent and confirmation states" class="case-study-image">
+                <img src="./images/arc-system/5 - Confirmed.png" alt="Side-by-side comparison of the dashboard in urgent and confirmation states" class="case-study-image">
+            </section>
+            <section class="case-study-section">
+                <h3>// 04_FINAL_SHOWCASE</h3>
+                <h4>Interactive Prototype</h4>
+                <p>Instructions: The prototype will auto-play the escalation sequence. To test the "happy path," refresh the prototype and click the screen during the "Request" phase to simulate taking control.</p>
+                <div class="figma-embed-container">
+                    <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/proto/2Pc3KAKBxoExL2sLbMUMfn/ARC-Handoff-System?page-id=0%3A1&node-id=13-7&p=f&viewport=-1%2C335%2C0.11&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A2&embed-host=share" allowfullscreen></iframe>
+                </div>
+            </section>
+            <section class="case-study-section">
+                <h3>// 05_OUTCOMES_AND_REFLECTION</h3>
+                <p>As a conceptual project, the immediate next step is to conduct usability testing in a driving simulator. This would allow for the collection of quantitative data (e.g., Takeover Time) and qualitative feedback on driver anxiety. This project reinforced my belief that the most complex technological problems demand the simplest, most human-centered solutions.</p>
+                <p>This project was a fascinating deep dive into the psychology of trust between humans and machines. It reinforced my belief that the most complex technological problems often demand the simplest, most human-centered solutions. Designing for a 10-second window where clarity can mean the difference between safety and disaster was a challenging but incredibly rewarding exercise that I am passionate about continuing to explore.</p>
+            </section>
+        </article>
+    </template>
+    
+    <template id="template-project-ux-four">
+        <article class="content-page">
+            <a href="#" class="back-link" data-template="template-ux-list">◄ RETURN_TO_LIST</a>
+            <h2>CASE_STUDY: Tasker_Research.txt</h2>
+            <h1>Tasker: A Unified Task Management Solution</h1>
+            <p class="project-subtitle">Foundational user research to inform the design of a powerful yet easy-to-use application that consolidates personal, academic, and professional tasks.</p>
+            <img src="https://via.placeholder.com/800x400/1F1F1F/EAEAEA?text=Tasker+Hero+Image" alt="Tasker Hero Image" class="case-study-hero-image">
+            <div class="metadata-bar">
+                <div><strong>ROLE:</strong> UX Researcher</div>
+                <div><strong>TOOLS:</strong> FigJam, Zoom</div>
+                <div><strong>TIMELINE:</strong> Fall 2024</div>
+            </div>
+            <section class="case-study-section">
+                <h3>// 01_PROBLEM_STATEMENT</h3>
+                <p>Busy students and professionals struggle to manage their ever-growing lists of tasks, leading to decreased productivity and increased stress. They are often forced to switch between multiple applications—some too simple and some too complex—creating a fragmented and inefficient system that fails to meet their diverse needs.</p>
+                <h4>Project Goal:</h4>
+                <p>This project's goal was to conduct foundational research to understand users' current task management behaviors, identify their primary pain points, and define the core design implications for a new, unified solution called "Tasker".</p>
+            </section>
+            <section class="case-study-section">
+                <h3>// 02_METHODOLOGY_AND_FINDINGS</h3>
+                <p>We employed a mixed-methods approach to gather rich qualitative data, conducting remote observations with six participants and in-depth interviews with six different participants. The data was transcribed and analyzed using affinity diagrams in FigJam to identify key themes.</p>
+                <h4>Key Finding: System Fragmentation</h4>
+                <blockquote>The most prominent pain point was the frustration of fragmentation. Most participants used at least two digital tools (e.g., Google Calendar, Apple Notes) and often a physical tool like a planner to manage their tasks, leading to duplicate entry and a lack of a single source of truth.</blockquote>
+                <h4>Key Finding: Need for Customization & Feedback</h4>
+                <p>Users consistently expressed a desire for more customization, especially advanced color-coding, and clearer visual feedback for task completion, such as strikethroughs or faded text.</p>
+                 <img src="https://via.placeholder.com/800x450/1F1F1F/EAEAEA?text=User+Personas" alt="User Personas" class="case-study-image">
+            </section>
+            <section class="case-study-section">
+                <h3>// 03_DESIGN_IMPLICATIONS</h3>
+                <p>Our research directly led to four core design implications that would guide the future development of the "Tasker" application.</p>
+                <div class="insight-table">
+                    <div class="insight-row">
+                        <div class="insight-cell"><strong>Unified Management</strong></div>
+                        <div class="insight-cell">A unified tool is needed to manage personal, academic, and professional tasks in one place to reduce fragmentation.</div>
+                    </div>
+                    <div class="insight-row">
+                        <div class="insight-cell"><strong>Customizable Visuals</strong></div>
+                        <div class="insight-cell">The app must feature flexible color palettes and clear visual cues for task status to meet user demands for personalization.</div>
+                    </div>
+                     <div class="insight-row">
+                        <div class="insight-cell"><strong>Smart Prioritization</strong></div>
+                        <div class="insight-cell">The design should offer features to help users prioritize tasks effectively to reduce the feeling of being overwhelmed.</div>
+                    </div>
+                </div>
+            </section>
+            <section class="case-study-section">
+                <h3>// 04_THE_FINAL_SOLUTION</h3>
+                <p>Based on the research, we designed a high-fidelity prototype that directly addresses the user needs we uncovered. The final design for "Tasker" features a clean, integrated interface with robust customization and intelligent prioritization features.</p>
+            </section>
+            <section class="case-study-section">
+                <h3>// 05_FINAL_SHOWCASE</h3>
+                <h4>High-Fidelity Mockups</h4>
+                <div class="image-gallery">
+                    <figure class="gallery-item">
+                        <img src="https://via.placeholder.com/400x300/1F1F1F/EAEAEA?text=Tasker+Mobile+Screens" alt="High-fidelity mobile screens for Tasker">
+                        <figcaption class="gallery-caption">// TASKER_MOBILE_UI //</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="https://via.placeholder.com/400x300/1F1F1F/EAEAEA?text=Tasker+Desktop+Screens" alt="High-fidelity desktop screens for Tasker">
+                        <figcaption class="gallery-caption">// TASKER_DESKTOP_UI //</figcaption>
+                    </figure>
+                </div>
+            </section>
+            <section class="case-study-section">
+                <h3>// 06_CONCLUSION_AND_NEXT_STEPS</h3>
+                <p>This foundational research study successfully identified the key challenges and desires of modern task management users. The findings confirm a clear market opportunity for a unified, customizable, and intuitive application.</p>
+                <p>The immediate next step, as outlined in our report, is to move into the design phase by creating mock-ups and interactive prototypes based on these research-driven implications. These prototypes will then undergo rigorous usability testing to validate our design decisions.</p>
+            </section>
+        </article>
+    </template>
+    
+    <template id="template-contact">
+        <article class="content-page">
+            <h2>// ESTABLISH_CONNECTION</h2>
+            <p>I'm currently available for new opportunities and collaborations. If my work resonates with you, I'd be delighted to connect. The best ways to reach me are below.</p>
+            <div class="contact-links-container">
+                <div class="contact-link-item">
+                    <a href="mailto:allanjcollett@gmail.com" class="contact-command">$ mail -s "Opportunity" allanjcollett@gmail.com</a>
+                    <p class="contact-description">// The most direct way to reach me. I respond within 24 hours.</p>
+                </div>
+                <div class="contact-link-item">
+                    <a href="https://linkedin.com/in/allan-collett" target="_blank" class="contact-command">$ open -a browser "https://linkedin.com/in/allan-collett"</a>
+                    <p class="contact-description">// View my professional history and connect.</p>
+                </div>
+                <div class="contact-link-item">
+                    <a href="https://github.com/AJcoll" target="_blank" class="contact-command">$ git clone https://github.com/AJcoll</a>
+                    <p class="contact-description">// Browse my public code repositories.</p>
+                </div>
+            </div>
+        </article>
+    </template>
+
+    <script>
+      feather.replace()
+    </script>
+</body>
+</html>
