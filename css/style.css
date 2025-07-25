@@ -489,6 +489,9 @@
           justify-content: flex-start; /* Align items to start */
           gap: 1rem;
           padding: 0.75rem 1rem; /* Adjust padding */
+          position: sticky; /* Make header sticky */
+          top: 0;
+          z-index: 100;
       }
       .header-title {
           flex-grow: 1;
@@ -593,7 +596,7 @@
           margin-bottom: 2rem;
       }
       .case-study-section img {
-          width: 100% !important; 
+          width: 100% !important; /* Force images to take full width on mobile */
           height: auto;
           margin-bottom: 1rem;
       }
