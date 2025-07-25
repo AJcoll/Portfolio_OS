@@ -334,7 +334,8 @@
   }
   
   .content-page h1,
-  .content-page h2 {
+  .content-page h2,
+  .case-study-section h3 {
     overflow-wrap: break-word;
     word-wrap: break-word; /* Legacy fallback */
   }
@@ -564,12 +565,9 @@
           font-size: 0.9em; /* Smaller body text */
       }
 
+      /* FIX: Change display to block to ensure vertical stacking */
       .about-me-grid {
-          grid-template-columns: 1fr;
-          display: grid; 
-          gap: 1.5rem;
-          width: 100%;
-          overflow: hidden; 
+          display: block;
       }
       .about-me-grid > div { 
           width: 100%;
