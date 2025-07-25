@@ -563,10 +563,9 @@
           font-size: 0.9em; /* Smaller body text */
       }
 
-      /* FIX: Force grid to be a single, non-fixed column on mobile */
       .about-me-grid {
           display: grid;
-          grid-template-columns: 1fr !important;
+          grid-template-columns: 1fr !important; /* Force a single, non-fixed column on mobile */
           gap: 1.5rem;
       }
       
@@ -602,10 +601,8 @@
           width: 100%;
       }
 
-      /* FIX: Force image gallery to be a single column on mobile */
       .image-gallery {
-          grid-template-columns: 1fr;
-          gap: 1rem;
+          grid-template-columns: 1fr !important; /* Force a single column to prevent overflow */
       }
       .gallery-item img {
           height: auto;
