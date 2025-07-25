@@ -89,7 +89,8 @@
     grid-template-areas:
       "header header"
       "nav main";
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
     gap: 1px;
     background-color: #020c1b; /* Background for the grid gaps */
     opacity: 0;
@@ -144,18 +145,20 @@
       font-size: 1.5rem; /* Make icon larger */
   }
   
-  /* Close button for mobile nav */
   .close-mobile-nav {
+      display: none; /* Hidden by default */
       position: absolute;
       top: 1rem;
-      right: 1rem;
+      right: 1.5rem;
       background: none;
       border: none;
       color: var(--light-text);
       cursor: pointer;
-      font-size: 2rem; /* Large enough for easy tapping */
-      z-index: 1001; /* Ensure it's above the nav */
-      display: none; /* Hidden by default, shown in mobile nav */
+      z-index: 1001;
+  }
+  .close-mobile-nav .feather {
+      width: 32px;
+      height: 32px;
   }
 
   /* --- CRT GLOW EFFECT --- */
@@ -302,8 +305,9 @@
   
   .widget-image {
       width: 100%;
-      height: 150px;
-      object-fit: cover;
+      height: auto; /* Let aspect-ratio control the height */
+      aspect-ratio: 16 / 9; /* Give the image a responsive 16:9 aspect ratio */
+      object-fit: cover; /* This will now work without aggressive cropping */
       margin-bottom: 1rem;
       border: 1px solid #2a2a2a;
       filter: grayscale(70%);
@@ -327,6 +331,12 @@
       font-family: var(--font-sans);
       font-size: 2.5rem;
       margin-bottom: 0.5rem;
+  }
+  
+  .content-page h1,
+  .content-page h2 {
+    overflow-wrap: break-word;
+    word-wrap: break-word; /* Legacy fallback */
   }
   
   .content-page .project-subtitle {
@@ -494,7 +504,7 @@
       }
 
       .close-mobile-nav {
-          display: block; /* Show close button in mobile nav */
+          display: block; /* Show the close button on mobile */
       }
   
       .left-nav-tree {
@@ -543,9 +553,6 @@
       .widget p {
           font-size: 0.9em; /* Adjust widget text size */
       }
-      .widget-image {
-          height: 120px; /* Slightly smaller image height */
-      }
       
       .content-page h1 {
           font-size: 1.8rem; /* Smaller main heading for content pages */
@@ -558,77 +565,76 @@
       }
 
       .about-me-grid {
-          grid-template-columns: 1fr !important; /* Force single column, override with !important */
-          display: grid; /* Keep as grid for consistency, but with 1 column */
-          /* Removed flex properties as grid handles stacking now */
+          grid-template-columns: 1fr;
+          display: grid; 
           gap: 1.5rem;
-          width: 100%; /* Ensure the grid itself takes full width */
-          overflow: hidden; /* Prevent internal elements from breaking out */
+          width: 100%;
+          overflow: hidden; 
       }
-      .about-me-grid > div { /* Target direct children of about-me-grid */
-          width: 100%; /* Ensure direct children take full available width */
+      .about-me-grid > div { 
+          width: 100%;
       }
       .user-avatar-panel {
-          max-width: 150px; /* Constrain avatar size */
-          margin: 0 auto 1.5rem auto; /* Center and add margin */
+          max-width: 150px; 
+          margin: 0 auto 1.5rem auto; 
       }
       .about-me-text {
-          text-align: center; /* Center about me text */
+          text-align: center; 
       }
       .about-me-section h3 {
-          text-align: center; /* Center section headers */
+          text-align: center;
       }
       .education-log-pre, .experience-log-pre {
-          font-size: 0.85em; /* Smaller preformatted text */
+          font-size: 0.85em;
       }
 
       .case-study-hero-image {
-          margin-bottom: 1rem; /* Adjust margin */
+          margin-bottom: 1rem;
       }
       .metadata-bar {
-          flex-direction: column; /* Stack metadata items */
+          flex-direction: column;
           gap: 0.5rem;
           padding: 0.75rem 1rem;
           margin-bottom: 2rem;
       }
       .case-study-section img {
-          width: 100%; /* Full width for images in case studies */
+          width: 100%; 
           height: auto;
           margin-bottom: 1rem;
       }
       .case-study-section img.case-study-image-wireframe {
-          width: 100%; /* Full width for wireframe images */
+          width: 100%;
       }
       .image-gallery {
-          grid-template-columns: 1fr; /* Single column for image galleries */
+          grid-template-columns: 1fr;
           gap: 1rem;
       }
       .gallery-item img {
-          height: auto; /* Ensure images scale correctly */
+          height: auto;
       }
       .figma-embed-container {
-          padding-top: 75%; /* Adjust aspect ratio for better mobile fit (4:3) */
+          padding-top: 75%;
       }
 
       .tabs-container {
-          flex-wrap: wrap; /* Allow tabs to wrap */
+          flex-wrap: wrap;
           justify-content: center;
       }
       .tab-button {
-          padding: 0.5rem 1rem; /* Smaller tab buttons */
+          padding: 0.5rem 1rem;
           font-size: 0.9em;
       }
       .tech-labs-item {
-          padding: 1rem; /* Smaller padding for tech labs items */
+          padding: 1rem;
       }
       .tech-labs-title {
-          font-size: 1.1em; /* Adjust font size */
+          font-size: 1.1em;
       }
       .tech-labs-description {
-          font-size: 0.9em; /* Adjust font size */
+          font-size: 0.9em;
       }
       .tech-labs-tags {
-          gap: 0.5rem; /* Smaller gap for tags */
+          gap: 0.5rem;
       }
       .tech-labs-tags span {
           font-size: 0.8em;
@@ -638,7 +644,7 @@
       }
 
       .contact-link-item {
-          margin-bottom: 1.5rem; /* Adjust spacing */
+          margin-bottom: 1.5rem;
       }
       .contact-command {
           padding: 0.75rem;
@@ -646,24 +652,24 @@
       }
       .contact-description {
           font-size: 0.8em;
-          padding-left: 0.5rem; /* Adjust indent */
+          padding-left: 0.5rem;
       }
 
       .error-page-container h1 {
-          font-size: 3rem; /* Smaller 404 heading */
+          font-size: 3rem;
       }
       .error-page-container p {
-          font-size: 1.2rem; /* Smaller 404 text */
+          font-size: 1.2rem;
       }
       .error-page-container .back-link {
-          font-size: 1em; /* Smaller 404 button */
+          font-size: 1em;
       }
   }
   
   /* Further adjustments for very small screens */
   @media (max-width: 480px) {
       #boot-screen {
-          font-size: 0.9rem; /* Even smaller font for boot log */
+          font-size: 0.9rem;
           padding: 0.75rem;
       }
       #boot-log {
@@ -705,9 +711,6 @@
       .widget p {
           font-size: 0.85em;
       }
-      .widget-image {
-          height: 100px;
-      }
 
       .content-page h1 {
           font-size: 1.5rem;
@@ -725,11 +728,11 @@
           font-size: 0.8em;
       }
       .figma-embed-container {
-          padding-top: 100%; /* Adjust aspect ratio for square-ish look on very small screens */
+          padding-top: 100%;
       }
 
       .tabs-container {
-          flex-wrap: wrap; /* Allow tabs to wrap */
+          flex-wrap: wrap;
           justify-content: center;
       }
       .tab-button {
@@ -885,6 +888,10 @@
       border: 1px solid #2a2a2a;
       text-decoration: none;
       transition: color 0.2s, border-color 0.2s;
+  }
+  .contact-command {
+      overflow-wrap: break-word;
+      word-wrap: break-word; /* Legacy fallback */
   }
   .contact-command:hover {
       color: var(--accent-color);

@@ -17,6 +17,10 @@ function loadContent(templateId) {
             const content = template.content.cloneNode(true);
             mainContentArea.appendChild(content);
             mainContentArea.classList.remove('loading');
+            // Re-run feather icons replacement on new content
+            if (window.feather) {
+                window.feather.replace();
+            }
         }, 300);
     } else {
         console.error(`Template with ID "${templateId}" not found.`);
@@ -37,24 +41,25 @@ function handleNavClick(e) {
         const templateId = navElement.dataset.template;
         if (templateId) {
             loadContent(templateId);
+            // Check if the link is in the main nav tree to set active state
             if (navElement.closest('.left-nav-tree .nav-link')) {
                 document.querySelectorAll('.left-nav-tree .nav-link').forEach(nav => nav.classList.remove('active'));
                 navElement.classList.add('active');
-                document.getElementById('left-nav-tree').classList.remove('is-open');
             }
+             // Always close the mobile nav after a selection
+            document.getElementById('left-nav-tree').classList.remove('is-open');
         }
     }
 
-    // NEW: Handle tab button clicks
+    // Handle tab button clicks
     const tabButton = target.closest('.tab-button');
     if (tabButton) {
         e.preventDefault();
-        const tabContainer = tabButton.closest('.tabs-container');
-        const contentContainer = tabContainer.nextElementSibling;
+        const tabsWrapper = tabButton.closest('.tabs-wrapper');
         
-        // Remove active class from all tabs and panes
-        tabContainer.querySelectorAll('.tab-button').forEach(tab => tab.classList.remove('active'));
-        contentContainer.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+        // Remove active class from all tabs and panes within this specific tab component
+        tabsWrapper.querySelectorAll('.tab-button').forEach(tab => tab.classList.remove('active'));
+        tabsWrapper.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
         
         // Add active class to clicked tab and corresponding pane
         tabButton.classList.add('active');
@@ -76,15 +81,24 @@ function attachAccordionListeners() {
 }
 
 /**
- * Attaches listeners for the mobile navigation toggle.
+ * Attaches listeners for opening and closing the mobile navigation.
  */
 function attachMobileNavListener() {
     const toggleButton = document.getElementById('mobile-nav-toggle');
+    const closeButton = document.getElementById('close-mobile-nav'); // Get the new close button
     const navTree = document.getElementById('left-nav-tree');
 
     if (toggleButton && navTree) {
+        // Hamburger icon now ONLY opens the nav
         toggleButton.addEventListener('click', () => {
-            navTree.classList.toggle('is-open');
+            navTree.classList.add('is-open');
+        });
+    }
+
+    if (closeButton && navTree) {
+        // The new 'X' button ONLY closes the nav
+        closeButton.addEventListener('click', () => {
+            navTree.classList.remove('is-open');
         });
     }
 }
@@ -95,7 +109,15 @@ function attachMobileNavListener() {
 function updateClock() {
     setInterval(() => {
         const now = new Date();
-        liveClock.textContent = now.toLocaleTimeString('en-US', { hour12: false });
+        const timeString = now.toLocaleTimeString('en-US', {
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false
+        });
+        if (liveClock) {
+            liveClock.textContent = `[${timeString}]`;
+        }
     }, 1000);
 }
 
@@ -103,15 +125,14 @@ function updateClock() {
  * Initializes all UI components and event listeners.
  */
 export function initUI() {
-    console.log("UI Initialized. Attaching listeners...");
-    
-    document.querySelector('.left-nav-tree').addEventListener('click', handleNavClick);
-    mainContentArea.addEventListener('click', handleNavClick);
+    // A single, more efficient event listener on the body handles all clicks.
+    document.body.addEventListener('click', handleNavClick);
 
     attachAccordionListeners();
     attachMobileNavListener();
     updateClock();
     
+    // Initial content load
     loadContent('template-home');
     document.getElementById('home-link').classList.add('active');
 }
