@@ -517,10 +517,9 @@
           transform: translateX(-100%);
           transition: transform 0.3s ease-in-out;
           border-right: 1px solid var(--accent-color);
-          /* Added for mobile nav overlay */
-          display: flex; /* Always flex for overlay, hidden by transform */
+          display: flex;
           flex-direction: column;
-          padding: 2rem 1rem; /* More padding for mobile overlay */
+          padding: 2rem 1rem;
           box-sizing: border-box;
       }
   
@@ -564,10 +563,10 @@
           font-size: 0.9em; /* Smaller body text */
       }
 
-      /* FIX: Force grid to be a single column on mobile */
+      /* FIX: Force grid to be a single, non-fixed column on mobile */
       .about-me-grid {
           display: grid;
-          grid-template-columns: 1fr;
+          grid-template-columns: 1fr !important;
           gap: 1.5rem;
       }
       
@@ -602,6 +601,8 @@
       .case-study-section img.case-study-image-wireframe {
           width: 100%;
       }
+
+      /* FIX: Force image gallery to be a single column on mobile */
       .image-gallery {
           grid-template-columns: 1fr;
           gap: 1rem;
@@ -956,7 +957,6 @@
       margin-bottom: 1rem;
       border-bottom: 1px solid #2a2a2a;
       padding-bottom: 0.5rem;
-      /* FIX: Ensure long headings wrap */
       overflow-wrap: break-word;
       word-wrap: break-word;
   }
