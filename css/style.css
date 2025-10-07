@@ -162,7 +162,7 @@
   }
 
   /* --- CRT GLOW EFFECT --- */
-  .header-title, .status-indicators span, .widget h3, .content-page h2, .motd-panel h3, .about-me-section h3, .case-study-section h3, .tech-labs-title, .nav-footer p {
+  .header-title, .status-indicators span, .widget h3, .content-page h2, .motd-panel h3, .motd-panel h4, .about-me-section h3, .case-study-section h3, .tech-labs-title, .nav-footer p {
       text-shadow: 0 0 2px var(--accent-color-darker);
   }
   
