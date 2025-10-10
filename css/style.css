@@ -30,14 +30,14 @@ body::before {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-image: repeating-linear-gradient(
+  /* width: 100vw;
+  height: 100vh; */
+  /* background-image: repeating-linear-gradient(
     transparent,
     transparent 2px,
     rgba(0, 0, 0, 0.3) 2px,
     rgba(0, 0, 0, 0.3) 3px
-  );
+  ); */
   z-index: -1;
   pointer-events: none;
 }
@@ -1098,6 +1098,15 @@ blockquote {
     grid-template-areas:
       "header"
       "main";
+  }
+
+  #dashboard.dashboard-grid-twocol {
+    grid-template-rows: auto minmax(0, 1fr); /* was var(--header-h) ... */
+  }
+  .top-status-bar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
   }
 
   .top-status-bar {
