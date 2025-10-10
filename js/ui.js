@@ -11,7 +11,6 @@ function loadContent(templateId) {
   const template = document.getElementById(templateId);
   if (template) {
     mainContentArea.classList.add("loading");
-    mainContentArea.scrollTop = 0; //
 
     setTimeout(() => {
       mainContentArea.innerHTML = "";
@@ -19,13 +18,11 @@ function loadContent(templateId) {
       mainContentArea.appendChild(content);
       mainContentArea.classList.remove("loading");
 
+      // Ensure new view starts at the top (after layout/paint)
       requestAnimationFrame(() => {
-        // ← add this block
-        mainContentArea.scrollTop = 0;
-        // extra belt-and-suspenders: scroll the first element into view
-        mainContentArea.firstElementChild?.scrollIntoView({
-          block: "start",
-          behavior: "auto",
+        mainContentArea.scrollTo(0, 0);
+        requestAnimationFrame(() => {
+          mainContentArea.scrollTo(0, 0);
         });
       });
 
@@ -143,6 +140,11 @@ function updateClock() {
  * Initializes all UI components and event listeners.
  */
 export function initUI() {
+  // Prevent browser from restoring old scroll positions in SPA
+  if ("scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+  }
+
   // A single, more efficient event listener on the body handles all clicks.
   document.body.addEventListener("click", handleNavClick);
 
