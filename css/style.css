@@ -1143,6 +1143,9 @@ blockquote {
     font-size: 0.9em;
   }
 
+  .coded-grid {
+    grid-template-columns: 1fr !important;
+  }
   .coded-projects-item {
     padding: 1rem;
   }
