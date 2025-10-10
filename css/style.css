@@ -1214,6 +1214,10 @@ blockquote {
   .main-content-area {
     padding: 0.75rem;
   }
+  .main-content-area {
+    overflow-anchor: none;
+  }
+
   .motd-panel {
     padding: 0.75rem;
   }

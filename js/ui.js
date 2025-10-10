@@ -11,6 +11,7 @@ function loadContent(templateId) {
   const template = document.getElementById(templateId);
   if (template) {
     mainContentArea.classList.add("loading");
+    mainContentArea.scrollTop = 0; //
 
     setTimeout(() => {
       mainContentArea.innerHTML = "";
@@ -18,10 +19,14 @@ function loadContent(templateId) {
       mainContentArea.appendChild(content);
       mainContentArea.classList.remove("loading");
 
-      // ⬇️ Reset the scroll position of the scrolling container
-      mainContentArea.scrollTop = 0;
       requestAnimationFrame(() => {
+        // ← add this block
         mainContentArea.scrollTop = 0;
+        // extra belt-and-suspenders: scroll the first element into view
+        mainContentArea.firstElementChild?.scrollIntoView({
+          block: "start",
+          behavior: "auto",
+        });
       });
 
       // Re-run feather icons replacement on new content
