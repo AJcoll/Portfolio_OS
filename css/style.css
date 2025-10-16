@@ -722,9 +722,9 @@ blockquote {
 }
 
 /* --- TABS --- */
-.tabs-wrapper {
+/* .tabs-wrapper {
   margin-top: 1rem;
-}
+} */
 .tabs-container {
   display: flex;
   border-bottom: 1px solid #2a2a2a;
